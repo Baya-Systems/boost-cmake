@@ -6,6 +6,10 @@ option(BOOST_DISABLE_TESTS "Do not build test targets, even if building standalo
 set(BOOST_URL "https://boostorg.jfrog.io/artifactory/main/release/1.71.0/source/boost_1_71_0.tar.bz2" CACHE STRING "Boost download URL")
 set(BOOST_URL_SHA256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee" CACHE STRING "Boost download URL SHA256 checksum")
 
+if(${CMAKE_VERSION} VERSION_GREATER "3.24")
+    cmake_policy(SET CMP0135 NEW)
+endif()
+
 include(FetchContent)
 FetchContent_Declare(
   Boost
